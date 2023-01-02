@@ -1,3 +1,4 @@
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -59,12 +60,9 @@ export default function SicrediDragonDetails() {
       <div className='list-dragons'>
         <div className='content'>
           <article key={dragons?.id}>
-            <strong>ID: {dragons?.id}</strong>
             <strong>Nome: {dragons?.name}</strong>
             <strong>Tipo: {dragons?.type}</strong>
-            <strong>Titulo: {dragons?.title}</strong>
-            <strong>História: {dragons?.histories}</strong>
-            <strong>Data de Nascimento: {dragons?.createdAt}</strong>
+            <strong>Data de Criação: {moment(dragons?.createdAt).format('DD/MM/YYYY')}</strong>
             <Link className='button-back' to='/'>Voltar</Link>
             <Link className='button-detele' to='/' onClick={deleteDragon}>Deletar</Link>
           </article>

@@ -6,8 +6,7 @@
     margin: 10px 0;
     font-size: 24px;
     text-decoration: none;
-    color: #fff;
-    border: solid 3px;
+    color: var(--gray-100);
     border-radius: 10px;
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { DragonService } from '../../../services/dragon/dragon.service';
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import { IDragon } from '../../../types/dragon.types';
 import './sicred-card.css';
 
@@ -13,7 +14,7 @@ export function SicrediCard() {
   const fetchDragons = async () => {
     try {
       setLoading(true)
-      
+
       const response = await dragonService.getDragon();
 
       setDragons(response.data)
@@ -21,6 +22,20 @@ export function SicrediCard() {
       setLoading(false)
     } catch (error) {
       console.log('error');
+    }
+  }
+
+  const deleteDragon = async (id: string) => {
+    try {
+      setLoading(true)
+
+      await dragonService.deleteDragon(id);
+
+      toast.success('Dragão deletado com sucesso!')
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+      toast.error("Erro ao deletar dragão!")
     }
   }
 
@@ -47,6 +62,12 @@ export function SicrediCard() {
                 <strong>Tipo: {dragon.type}</strong>
                 <Link className='button-details' to={`${dragon.id}`}>Detalhes</Link>
                 <Link className='button-edit' to={`edit/${dragon.id}`}>Editar</Link>
+                <button
+                  className='button-delete'
+                  onClick={() => deleteDragon(dragon.id)}
+                >
+                  Excluir
+                </button>
               </article>
             </div>
           )

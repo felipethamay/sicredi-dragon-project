@@ -1,3 +1,12 @@
+.container {
+    display: flex;
+}
+
+.content {
+    float: left;
+    min-width: 300px;
+}
+
 .listDragons {
     max-width: 800px;
     margin: 14px auto;
@@ -10,15 +19,14 @@
 }
 
 .listDragons strong {
+    display: flex;
     margin-bottom: 14px;
     text-align: center;
     font-size: 22px;
-    display: flex;
 }
 
 .button-details {
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 10px 0;
     margin: 10px 0;
@@ -31,7 +39,6 @@
 
 .button-edit {
     display: flex;
-    align-items: center;
     justify-content: center;
     padding: 10px 0;
     margin: 10px 0;
@@ -42,11 +49,13 @@
     border-radius: 10px;
 }
 
-.content {
-    border: solid 3px;
+.button-delete {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 24px;
+    background-color: var(--red-900);
+    color: var(--white);
     border-radius: 10px;
-    padding: 5px;
-    margin: 10px;
 }
 
 .loading {

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './sicredi-header.css'
 import Img from './../../../assets/images/sicredi-logo.svg';
+import Icon from './../../../assets/icons/exit.svg';
 
 export default function SicrediHeader() {
 
@@ -10,7 +11,14 @@ export default function SicrediHeader() {
                 <img src={Img} width={190} height={140} />
             </Link>
             <Link className='button' to='/register'>Cadastrar dragão</Link>
-            <Link className='button' to='/login'>Sair</Link>
+            <input
+                type="image"
+                src={Icon}
+                title="Gerar relatório pdf"
+                alt="Submit"
+                className='button-exit'
+            />
+
         </header>
     )
 }
