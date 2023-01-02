@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { DragonService } from '../../../services/dragon/dragon.service';
 import { Link } from 'react-router-dom'
-import './sicred-card.css';
 import { IDragon } from '../../../types/dragon.types';
+import './sicred-card.css';
 
 const dragonService = new DragonService();
 
@@ -38,15 +38,15 @@ export function SicrediCard() {
 
   return (
     <div className='container'>
-      <div className='list-dragons'>
+      <div className='listDragons'>
         {dragons.map((dragon) => {
           return (
             <div className='content'>
               <article key={dragon.id}>
-                <strong>{dragon.name}</strong>
-                <strong>{dragon.type}</strong>
-                <Link to={`${dragon.id}`}>Detalhes</Link>
-                <Link to={`edit/${dragon.id}`}>Editar</Link>
+                <strong>Nome: {dragon.name}</strong>
+                <strong>Tipo: {dragon.type}</strong>
+                <Link className='button-details' to={`${dragon.id}`}>Detalhes</Link>
+                <Link className='button-edit' to={`edit/${dragon.id}`}>Editar</Link>
               </article>
             </div>
           )

@@ -5,7 +5,6 @@
 
 .list-dragons article {
     width: 100%;
-    background-color: #fff;
     padding: 15px;
     border-radius: 4px;
 }
@@ -14,32 +13,31 @@
     margin-bottom: 14px;
     text-align: center;
     font-size: 22px;
-    display: block;
+    display: flex;
 }
 
-.list-dragons a {
+.button-back {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     font-size: 24px;
-    background-color: #116FEB;
+    background-color: var(--green-900);
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     border-radius: 10px;
 }
 
 .button-detele {
-    width: 100%;
-    cursor: pointer;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     margin: 10px 0;
     font-size: 24px;
-    background-color: #eb2311;
+    background-color: var(--red-900);
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     border-radius: 10px;
 }
 

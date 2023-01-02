@@ -13,8 +13,8 @@
 
 .not-found a {
     text-decoration: none;
-    background-color: #116FEB;
-    color: #fff;
+    background-color: var(--green-900);
+    color: var(--white);
     padding: 10px;
     margin-top: 14px;
 }

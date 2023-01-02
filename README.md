@@ -15,8 +15,10 @@
 ```
 
 |--src
-|  |---enums
-|  |    » Enums do projeto
+|  |---assets
+|  |  |
+|  |  |---images
+|  |  |     » Imagens do projeto
 |  |
 |  |---router
 |  |    » Estrutura de rotas do projeto

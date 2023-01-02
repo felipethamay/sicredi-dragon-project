@@ -11,8 +11,8 @@ export class DragonService {
     return axios.get(`${API.BASE_URL}/${id}`)
   }
 
-  public postDragon() {
-    return axios.post(`${API.BASE_URL}`)
+  public postDragon(data: FormData) {
+    return axios.post(`${API.BASE_URL}`, data)
   }
 
   public putDragon(id: string) {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 import { DragonService } from '../../../services/dragon/dragon.service';
 import { IDragon } from '../../../types/dragon.types';
 import './sicredi-card-details.css'
@@ -8,7 +9,7 @@ const dragonService = new DragonService();
 
 export default function SicrediDragonDetails() {
 
-    const [dragons, setDragons] = useState<IDragon>();
+  const [dragons, setDragons] = useState<IDragon>();
   const [loading, setLoading] = useState(false)
 
   const { id } = useParams();
@@ -33,9 +34,11 @@ export default function SicrediDragonDetails() {
 
       await dragonService.deleteDragon(id!);
 
+      toast.success('Dragão deletado com sucesso!')
       setLoading(false)
     } catch (error) {
-      console.log('Dragão não encontrado');
+      setLoading(false)
+      toast.error("Erro ao deletar dragão!")
     }
   }
 
@@ -62,7 +65,7 @@ export default function SicrediDragonDetails() {
             <strong>Titulo: {dragons?.title}</strong>
             <strong>História: {dragons?.histories}</strong>
             <strong>Data de Nascimento: {dragons?.createdAt}</strong>
-            <Link to='/'>Voltar</Link>
+            <Link className='button-back' to='/'>Voltar</Link>
             <Link className='button-detele' to='/' onClick={deleteDragon}>Deletar</Link>
           </article>
         </div>

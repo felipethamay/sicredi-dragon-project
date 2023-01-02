@@ -1,32 +1,44 @@
-.list-dragons {
+.listDragons {
     max-width: 800px;
     margin: 14px auto;
 }
 
-.list-dragons article {
+.listDragons article {
     width: 100%;
-    background-color: #fff;
     padding: 15px;
     border-radius: 4px;
 }
 
-.list-dragons strong {
+.listDragons strong {
     margin-bottom: 14px;
     text-align: center;
     font-size: 22px;
-    display: block;
+    display: flex;
 }
 
-.list-dragons a {
+.button-details {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px 0;
     margin: 10px 0;
     font-size: 24px;
-    background-color: #116FEB;
+    background-color: var(--green-900);
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
+    border-radius: 10px;
+}
+
+.button-edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: 24px;
+    background-color: var(--gray-100);
+    text-decoration: none;
+    color: var(--white);
     border-radius: 10px;
 }
 
