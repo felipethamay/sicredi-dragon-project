@@ -1,9 +1,15 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './sicredi-header.css'
 import Img from './../../../assets/images/sicredi-dragon.svg';
 import Icon from './../../../assets/icons/exit.svg';
 
 export default function SicrediHeader() {
+    const navigate = useNavigate()
+    
+    const onExit = () => {
+        localStorage.setItem('isAuthenticated', 'false');
+        navigate('/')
+    }
 
     return (
         <header>
@@ -14,9 +20,10 @@ export default function SicrediHeader() {
             <input
                 type="image"
                 src={Icon}
-                title="Gerar relatório pdf"
+                title="Sair"
                 alt="Submit"
                 className='button-exit'
+                onClick={onExit}
             />
 
         </header>

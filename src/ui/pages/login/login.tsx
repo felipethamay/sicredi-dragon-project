@@ -1,13 +1,15 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { Input } from '../../components/input/input'
 import { Button } from '../../components/button/button';
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext' 
 import logoImg from '../../../assets/images/sicredi-dragon.svg';
 import './login.css';
 
 
 export default function Login() {
+  const { signIn } = useContext(AuthContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -16,13 +18,20 @@ export default function Login() {
   const handleLogin = (event: FormEvent) => {
     event.preventDefault();
 
+    const data = {
+      email: '123',
+      password: '123',
+    }
+
+    signIn(data);
+
     try {
       if (email === '' || password === '') {
         toast.error("Preencha os campos")
         return;
       }
 
-      if (email === 'teste@sicredi.com' && password === '123') {
+      if (email === '123' && password === '123') {
         localStorage.setItem('isAuthenticated', 'true');
         navigate('/home');
         toast.success("Usuário logado com sucesso");
