@@ -37,12 +37,11 @@ export default function RegisterDragon() {
 
       toast.success("Dragão cadastrado com sucesso");
       setLoading(false);
+      navigate("/home");
     } catch (err) {
       toast.error("Ops erro ao cadastrar!");
       setLoading(false);
     }
-
-    navigate("/home");
   };
 
   const onBack = () => {
