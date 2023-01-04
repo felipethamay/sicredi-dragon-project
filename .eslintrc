@@ -13,9 +13,9 @@
     "max-len": [
       "error",
       {
-        "code": 120,
+        "code": 90,
         "tabWidth": 2,
-        "comments": 120,
+        "comments": 90,
         "ignoreComments": false,
         "ignoreTrailingComments": true,
         "ignoreUrls": true,

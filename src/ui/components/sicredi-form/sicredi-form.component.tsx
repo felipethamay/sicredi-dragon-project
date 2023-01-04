@@ -2,35 +2,60 @@ import { FormEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { DragonService } from '../../../services/dragon/dragon.service';
 import { IDragon } from '../../../types/dragon.types';
-import './register-dragon.css'
+import './sicredi-form.css'
 
 const dragonService = new DragonService();
 
-export default function RegisterDragon() {
+export default function SicrediForm({
+  id,
+  name,
+  title,
+  type,
+  createdAt,
+}: IDragon) {
 
   const [loading, setLoading] = useState(false);
   const [dragons, setDragons] = useState<IDragon[]>([]);
-  const [id, setId] = useState('');
-  const [name, setName] = useState('');
-  const [title, setTitle] = useState('');
-  const [type, setType] = useState('');
-  const [histories, setHistories] = useState('');
-  const [createdAt, setCreatedAt] = useState('');
+  const [ids, setId] = useState('');
+  const [names, setName] = useState('');
+  const [titles, setTitle] = useState('');
+  const [types, setType] = useState('');
+  const [historiess, setHistories] = useState('');
+  const [createdAts, setCreatedAt] = useState('');
 
-  const incrementId = async () => {
+  const fetchDragons = async () => {
     try {
+      setLoading(true)
+
       const response = await dragonService.getDragon();
 
       setDragons(response.data)
-      setId(dragons.slice(-1)[0].id)
+
+      setLoading(false)
     } catch (error) {
-      console.log('error');
+      toast.error("Erro ao buscar dragões!")
     }
   }
 
+  const incrementId = async () => {
+    setId(dragons.slice(-1)[0].id)
+  }
+
   useEffect(() => {
-    incrementId();
+    fetchDragons();
   }, [])
+
+  const handleEdit = async () => {
+    try {
+      setLoading(true);
+
+      await dragonService.putDragon(id)
+      setLoading(false);
+    } catch (error) {
+      toast.error("Erro ao editar dragão");
+      setLoading(false);
+    }
+  }
 
   async function handleRegister(event: FormEvent) {
     event.preventDefault();
@@ -42,7 +67,7 @@ export default function RegisterDragon() {
 
       const data = new FormData();
 
-      if (name === '' || title === '' || type === '' || histories === '' || createdAt === '') {
+      if (name === '' || title === '' || type === '' || createdAt === '') {
         toast.error("Preencha todos os campos!");
         return;
       }
@@ -51,7 +76,6 @@ export default function RegisterDragon() {
       data.append('name', name);
       data.append('title', title);
       data.append('type', type);
-      data.append('histories', histories);
       data.append('createdAt', createdAt);
 
       // await dragonService.postDragon(data);
@@ -106,14 +130,6 @@ export default function RegisterDragon() {
               placeholder="Tipo do dragão"
               value={type}
               onChange={(e) => setType(e.target.value)}
-            />
-          </label>
-          <label>História:
-            <input
-              type='text'
-              placeholder="Breve história do dragão"
-              value={histories}
-              onChange={(e) => setHistories(e.target.value)}
             />
           </label>
           <label>Data de nascimento:

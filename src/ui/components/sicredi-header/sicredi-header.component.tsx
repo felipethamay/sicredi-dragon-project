@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import './sicredi-header.css'
-import Img from './../../../assets/images/sicredi-logo.svg';
+import Img from './../../../assets/images/sicredi-dragon.svg';
 import Icon from './../../../assets/icons/exit.svg';
 
 export default function SicrediHeader() {
