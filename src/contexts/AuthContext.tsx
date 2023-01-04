@@ -30,31 +30,30 @@ export const AuthContext = createContext({} as AuthContextData)
 
 // const navigate = useNavigate()
 
-export function signOut(){
-  try{
+export function signOut() {
+  try {
     localStorage.setItem('isAuthenticated', 'false')
     // navigate('/')
-  }catch{
+  } catch {
     toast.error('Erro ao deslogar')
   }
 }
 
-export function AuthProvider({ children }: AuthProviderProps){
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<SignInProps>()
   const isAuthenticated = !!user;
 
   const signIn = async ({ email, password }: SignInProps) => {
     try {
       localStorage.setItem('isAuthenticated', 'true');
-      toast.success('Logado com sucesso!')
 
       // navigate('/home')
-    }catch(err){
+    } catch (err) {
       toast.error("Erro ao acessar!")
     }
   }
 
-  return(
+  return (
     <AuthContext.Provider value={{ user, isAuthenticated, signIn, signOut }}>
       {children}
     </AuthContext.Provider>

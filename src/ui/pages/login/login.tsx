@@ -18,21 +18,20 @@ export default function Login() {
   const handleLogin = (event: FormEvent) => {
     event.preventDefault();
 
-    const data = {
-      email: '123',
-      password: '123',
-    }
-
-    signIn(data);
-
     try {
       if (email === '' || password === '') {
+        localStorage.setItem('isAuthenticated', 'false');
         toast.error("Preencha os campos")
         return;
       }
 
       if (email === '123' && password === '123') {
-        localStorage.setItem('isAuthenticated', 'true');
+        const data = {
+          email: email,
+          password: password,
+        }
+    
+        signIn(data);
         navigate('/home');
         toast.success("Usuário logado com sucesso");
         return;
