@@ -1,6 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
-import { Input } from "../../components/input/input";
-import { Button } from "../../components/button/button";
+import { Input } from "../../components/sicredi-input/sicredi-input";
+import { Button } from "../../components/sicredi-button/sicredi-button";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";

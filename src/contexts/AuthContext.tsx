@@ -1,26 +1,6 @@
-import { createContext, ReactNode } from "react";
+import { createContext } from "react";
 import { toast } from "react-toastify";
-
-type AuthContextData = {
-  user?: UserProps;
-  isAuthenticated: boolean;
-  signIn: (credentials: SignInProps) => Promise<void>;
-  signOut: () => void;
-};
-
-type UserProps = {
-  email?: string;
-  password?: string;
-};
-
-type SignInProps = {
-  email?: string;
-  password?: string;
-};
-
-type AuthProviderProps = {
-  children: ReactNode;
-};
+import { AuthContextData, AuthProviderProps } from "../types/auth.types";
 
 export const AuthContext = createContext({} as AuthContextData);
 

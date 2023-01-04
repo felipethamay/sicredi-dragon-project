@@ -2,8 +2,8 @@ import { FormEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
 import { IDragon } from "../../../types/dragon.types";
-import { Button } from "../button/button";
-import { Input } from "../input/input";
+import { Button } from "../sicredi-button/sicredi-button";
+import { Input } from "../sicredi-input/sicredi-input";
 import "./sicredi-form.css";
 
 const dragonService = new DragonService();
