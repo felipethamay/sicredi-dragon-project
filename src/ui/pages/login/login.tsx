@@ -1,17 +1,16 @@
-import { FormEvent, useContext, useState } from 'react'
-import { Input } from '../../components/input/input'
-import { Button } from '../../components/button/button';
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext' 
-import logoImg from '../../../assets/images/sicredi-dragon.svg';
-import './login.css';
-
+import { FormEvent, useContext, useState } from "react";
+import { Input } from "../../components/input/input";
+import { Button } from "../../components/button/button";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthContext";
+import logoImg from "../../../assets/images/sicredi-dragon.svg";
+import "./login.css";
 
 export default function Login() {
   const { signIn } = useContext(AuthContext);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -19,43 +18,38 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      if (email === '' || password === '') {
-        localStorage.setItem('isAuthenticated', 'false');
-        toast.error("Preencha os campos")
+      if (email === "" || password === "") {
+        toast.error("Preencha os campos");
         return;
       }
 
-      if (email === '123' && password === '123') {
+      if (email === "123" && password === "123") {
         const data = {
           email: email,
           password: password,
-        }
-    
+        };
+
         signIn(data);
-        navigate('/home');
-        toast.success("Usuário logado com sucesso");
+        navigate("/home");
         return;
       } else {
-        localStorage.setItem('isAuthenticated', 'false');
         toast.error("Usuário ou senha incorreto");
       }
-
     } catch (error) {
-      localStorage.setItem('isAuthenticated', 'false');
       toast.error("Usuário ou senha incorreto");
       setLoading(false);
     }
-  }
+  };
 
   return (
     <>
       <h1>
         <title>SicrediDragon - Faça seu login</title>
       </h1>
-      <div className='containerCenter'>
+      <div className="containerCenter">
         <img src={logoImg} alt="logo Sicredi" width={380} height={120} />
 
-        <div className='login'>
+        <div className="login">
           <form onSubmit={handleLogin}>
             <Input
               placeholder="Digite seu email"
@@ -71,16 +65,12 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button
-              type="submit"
-              loading={loading}
-              onClick={handleLogin}
-            >
+            <Button type="submit" loading={loading} onClick={handleLogin}>
               Acessar
             </Button>
           </form>
         </div>
       </div>
     </>
-  )
+  );
 }
