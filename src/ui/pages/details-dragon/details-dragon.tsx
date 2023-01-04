@@ -1,9 +1,12 @@
-import SicrediDragonDetails from '../../components/sicredi-card-details/sicredi-card-details.component';
-import './details-dragon.css'
+import SicrediCardDetails from "../../components/sicredi-card-details/sicredi-card-details.component";
+import SicrediHeader from "../../components/sicredi-header/sicredi-header.component";
+import "./details-dragon.css";
 
 export default function DetailsDragon() {
-
   return (
-    <SicrediDragonDetails />
+    <>
+      <SicrediHeader />
+      <SicrediCardDetails />
+    </>
   );
 }

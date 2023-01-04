@@ -10,10 +10,11 @@
 }
 
 .list-dragons strong {
+    display: flex;
     margin-bottom: 14px;
     text-align: center;
     font-size: 22px;
-    display: flex;
+    color: var(--gray-100);
 }
 
 .button-back {
@@ -22,7 +23,7 @@
     justify-content: center;
     padding: 10px 0;
     font-size: 24px;
-    background-color: var(--green-900);
+    background-color: var(--green-sicredi);
     text-decoration: none;
     color: var(--white);
     border-radius: 10px;
@@ -34,7 +35,8 @@
     justify-content: center;
     padding: 10px 0;
     margin: 10px 0;
-    font-size: 24px;
+    font-size: 1.2rem;
+    font-weight: bold;
     background-color: var(--red-900);
     text-decoration: none;
     color: var(--white);
@@ -42,7 +44,7 @@
 }
 
 .content {
-    border: solid 3px;
+    border: solid 3px var(--gray-500);
     border-radius: 10px;
     padding: 5px;
     margin: 10px;

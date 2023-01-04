@@ -6,17 +6,18 @@
 }
 
 :root {
-  --white: #FFF;
+  --white: #f8f9fa;
   --black: #000;
 
   --dark-900: #101026;
-  --dark-700: #1D1D2E;
+  --dark-700: #1d1d2e;
 
-  --gray-100: #8A8A8A;
-  --gray-900: #0f0f17;
-  --green-900: #3EA111;
-  --red-900: #FF3F4B;
-
+  --gray-100: #f8f9fa;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-900: #212529;
+  --green-sicredi: #3ea111;
+  --red-900: #ff3f4b;
 }
 
 button {
@@ -29,7 +30,7 @@ a {
 }
 
 body {
-  background: var(--dark-700)
+  background: var(--dark-700);
 }
 
 body,
@@ -37,7 +38,15 @@ input,
 textarea,
 select,
 button {
-  font: 400 1rem sans-serif;
+  font: 400 16px sans-serif;
+}
+
+h2 {
+   max-width: 720px;
+  margin: 19px auto;
+  padding: 0 2rem;
+  justify-content: center;
+  color: var(--gray-500);
 }
 
 @media (max-width: 720px) {

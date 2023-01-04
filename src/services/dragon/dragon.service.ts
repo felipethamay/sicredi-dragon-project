@@ -10,12 +10,12 @@ export class DragonService {
     return axios.get(`${API.BASE_URL}/${id}`);
   }
 
-  public postDragon(data: FormData) {
+  public postDragon({ ...data }) {
     return axios.post(`${API.BASE_URL}`, data);
   }
 
-  public putDragon(id: string) {
-    return axios.put(`${API.BASE_URL}/${id}`);
+  public putDragon(id: string, { ...data }) {
+    return axios.put(`${API.BASE_URL}/${id}`, data);
   }
 
   public deleteDragon(id: string) {
