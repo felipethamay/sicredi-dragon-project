@@ -60,7 +60,7 @@ export function SicrediCard() {
               <article key={dragon.id}>
                 <strong>Nome: {dragon.name}</strong>
                 <strong>Tipo: {dragon.type}</strong>
-                <Link className='button-details' to={`${dragon.id}`}>Detalhes</Link>
+                <Link className='button-details' to={`/home/${dragon.id}`}>Detalhes</Link>
                 <Link className='button-edit' to={`edit/${dragon.id}`}>Editar</Link>
                 <button
                   className='button-delete'

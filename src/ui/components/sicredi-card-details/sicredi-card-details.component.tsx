@@ -63,8 +63,8 @@ export default function SicrediDragonDetails() {
             <strong>Nome: {dragons?.name}</strong>
             <strong>Tipo: {dragons?.type}</strong>
             <strong>Data de Criação: {moment(dragons?.createdAt).format('DD/MM/YYYY')}</strong>
-            <Link className='button-back' to='/'>Voltar</Link>
-            <Link className='button-detele' to='/' onClick={deleteDragon}>Deletar</Link>
+            <Link className='button-back' to='/home'>Voltar</Link>
+            <Link className='button-detele' to='/home' onClick={deleteDragon}>Deletar</Link>
           </article>
         </div>
       </div>

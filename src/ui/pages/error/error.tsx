@@ -6,7 +6,7 @@ export default function Error() {
         <div className="not-found">
             <h1>404</h1>
             <h2>Página não encontrada!</h2>
-            <Link to='/'>Veja todos os Dragões</Link>
+            <Link to='/home'>Veja todos os Dragões</Link>
         </div>
     );
 }

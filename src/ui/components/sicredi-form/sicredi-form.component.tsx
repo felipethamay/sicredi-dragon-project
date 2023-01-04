@@ -2,6 +2,8 @@ import { FormEvent, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { DragonService } from '../../../services/dragon/dragon.service';
 import { IDragon } from '../../../types/dragon.types';
+import { Button } from '../button/button';
+import { Input } from '../input/input';
 import './sicredi-form.css'
 
 const dragonService = new DragonService();
@@ -106,10 +108,9 @@ export default function SicrediForm({
   return (
     <div className='container'>
       <div className='form'>
-        <h1>Novo Dragão</h1>
         <form onSubmit={handleRegister}>
           <label>Nome:
-            <input
+            <Input
               type='text'
               placeholder="Nome do dragão"
               value={name}
@@ -117,7 +118,7 @@ export default function SicrediForm({
             />
           </label>
           <label>Titulo:
-            <input
+            <Input
               type='text'
               placeholder="Titulo do dragão"
               value={title}
@@ -125,7 +126,7 @@ export default function SicrediForm({
             />
           </label>
           <label>Tipo:
-            <input
+            <Input
               type='text'
               placeholder="Tipo do dragão"
               value={type}
@@ -133,15 +134,15 @@ export default function SicrediForm({
             />
           </label>
           <label>Data de nascimento:
-            <input
+            <Input
               type='date'
               value={createdAt}
               onChange={(e) => setCreatedAt(e.target.value)}
             />
           </label>
-          <button className='buttonAdd' type="submit">
+          <Button className='buttonAdd' type="submit">
             Cadastrar
-          </button>
+          </Button>
         </form>
       </div>
     </div>

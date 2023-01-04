@@ -6,10 +6,10 @@ function App() {
   return (
     <div>
       <AuthProvider>
-      <ToastContainer
-        autoClose={3000}
-        theme="dark"
-      />
+        <ToastContainer
+          autoClose={3000}
+          theme="dark"
+        />
         <RoutesApp />
       </AuthProvider>
 

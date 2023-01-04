@@ -4,6 +4,7 @@ import { IDragon } from '../../../types/dragon.types';
 import SicrediForm from '../../components/sicredi-form/sicredi-form.component';
 import { toast } from 'react-toastify';
 import './edit.dragon.css'
+import SicrediHeader from '../../components/sicredi-header/sicredi-header.component';
 
 const dragonService = new DragonService();
 
@@ -51,12 +52,14 @@ export default function EditDragon() {
   }
 
   return (
-    <SicrediForm
-      createdAt={createdAt}
-      name={name}
-      type={type}
-      id={id}
-      title={title}
-    />
+    <>
+      <SicrediHeader />
+      <SicrediForm
+        createdAt={createdAt}
+        name={name}
+        type={type}
+        id={id}
+        title={title} />
+    </>
   );
 }

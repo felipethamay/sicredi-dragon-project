@@ -13,7 +13,7 @@ export default function SicrediHeader() {
 
     return (
         <header>
-            <Link className='logo' to='/'>
+            <Link className='logo' to='/home'>
                 <img src={Img} width={190} height={140} />
             </Link>
             <Link className='button' to='/register'>Cadastrar dragão</Link>
