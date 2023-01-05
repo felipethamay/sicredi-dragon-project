@@ -23,7 +23,7 @@ export default function Login() {
         return;
       }
 
-      if (email === "123" && password === "123") {
+      if (email === "teste@sicredi.com" && password === "123") {
         const data = {
           email: email,
           password: password,
@@ -42,35 +42,30 @@ export default function Login() {
   };
 
   return (
-    <>
-      <h1>
-        <title>SicrediDragon - Faça seu login</title>
-      </h1>
-      <div className="container-center">
-        <img src={logoImg} alt="logo Sicredi" width={380} height={120} />
+    <div className="container-center">
+      <img src={logoImg} alt="logo Sicredi" width={380} height={120} />
 
-        <div className="login">
-          <form onSubmit={handleLogin}>
-            <Input
-              placeholder="Digite seu email"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+      <div className="login">
+        <form onSubmit={handleLogin}>
+          <Input
+            placeholder="Digite seu email"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
-            <Input
-              placeholder="Sua senha"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <Input
+            placeholder="Sua senha"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-            <Button type="submit" loading={loading}>
-              Acessar
-            </Button>
-          </form>
-        </div>
+          <Button type="submit" loading={loading}>
+            Acessar
+          </Button>
+        </form>
       </div>
-    </>
+    </div>
   );
 }

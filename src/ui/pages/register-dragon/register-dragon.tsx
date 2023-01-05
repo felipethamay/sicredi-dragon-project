@@ -39,7 +39,7 @@ export default function RegisterDragon() {
       setLoading(false);
       navigate("/home");
     } catch (err) {
-      toast.error("Ops erro ao cadastrar!");
+      toast.error("Erro ao cadastrar!");
       setLoading(false);
     }
   };

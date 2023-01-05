@@ -6,7 +6,7 @@ import { Button } from "../../components/sicredi-button/sicredi-button.component
 import SicrediHeader from "../../components/sicredi-header/sicredi-header.component";
 import { Input } from "../../components/sicredi-input/sicredi-input.component";
 import Loading from "../../components/sicredi-loading/sicredi-loading.component";
-import "./edit.dragon.css";
+import "./edit-dragon.css";
 
 const dragonService = new DragonService();
 
@@ -67,7 +67,7 @@ export default function EditDragon() {
       setLoading(false);
       navigate("/home");
     } catch (err) {
-      toast.error("Ops erro ao editar!");
+      toast.error("Erro ao editar!");
       setLoading(false);
     }
   };
