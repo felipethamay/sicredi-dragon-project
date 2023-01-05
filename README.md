@@ -9,6 +9,7 @@
 
 1. [Estrutura](#estrutura)
 1. [Primeiros Passos](#primeiros-passos)
+1. [Acessando aplicação](#acessando-aplicação)
 
 ## Estrutura
 
@@ -22,6 +23,7 @@
 |  |  |
 |  |  |---images
 |  |  |     » Imagens do projeto
+|  |  |
 |  |
 |  |---contexts
 |  |    » Contextos do projeto
@@ -48,6 +50,8 @@
 
 ## Primeiros passos
 
+Instalar Node.js v14+, caso não tenha instalado
+
 Instalar as dependências
 
 ```bash
@@ -59,5 +63,12 @@ yarn
 Rodar o projeto
 
 ```bash
-npm run start
+npm start
 ```
+
+## Acessando aplicação
+
+Para fazer login, utilize o usuaário e senha abaixo:
+
+- Email: teste@sicredi.com
+- Senha: 123
