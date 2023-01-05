@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DragonService } from "../../../services/dragon/dragon.service";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IDragon } from "../../../types/dragon.types";
 import "./sicred-card.css";
@@ -10,6 +10,8 @@ const dragonService = new DragonService();
 export function SicrediCard() {
   const [dragons, setDragons] = useState<IDragon[]>([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
 
   const fetchDragons = async () => {
     try {
@@ -43,6 +45,10 @@ export function SicrediCard() {
   useEffect(() => {
     fetchDragons();
   }, []);
+
+  if (!isAuthenticated) {
+    navigate("/");
+  }
 
   if (loading) {
     return (

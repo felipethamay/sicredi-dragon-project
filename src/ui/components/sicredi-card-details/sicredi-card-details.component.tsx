@@ -14,7 +14,8 @@ export default function SicrediCardDetails() {
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
+  
   const goBack = () => {
     navigate('/home')
   }
@@ -23,7 +24,12 @@ export default function SicrediCardDetails() {
     try {
       setLoading(true);
 
-      const response = await dragonService.getDragonById(id!);
+      if (!id) {
+        toast.error("Id não encontrado!")
+        return null;
+      }
+
+      const response = await dragonService.getDragonById(id);
 
       setDragons(response.data);
 
@@ -37,7 +43,12 @@ export default function SicrediCardDetails() {
     try {
       setLoading(true);
 
-      await dragonService.deleteDragon(id!);
+      if (!id) {
+        toast.error("Id não encontrado!")
+        return null;
+      }
+
+      await dragonService.deleteDragon(id);
 
       toast.success("Dragão deletado com sucesso!");
       setLoading(false);
@@ -51,6 +62,10 @@ export default function SicrediCardDetails() {
   useEffect(() => {
     fetchDragonDetails();
   }, []);
+
+  if (!isAuthenticated) {
+    navigate("/");
+  }
 
   if (loading) {
     return (

@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
@@ -15,20 +15,19 @@ export default function RegisterDragon() {
   const [type, setType] = useState("");
   const [createdAt, setCreatedAt] = useState("");
   const navigate = useNavigate();
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-  const handleRegister = async (event: FormEvent) => {
-    event.preventDefault();
-
+  const handleRegister = async () => {
     try {
       setLoading(true);
 
       const data = {
-        name: name,
-        type: type,
-        createdAt: createdAt,
+        name,
+        type,
+        createdAt,
       };
 
-      if (name === "" || type === "") {
+      if (!name || !type) {
         toast.error("Preencha todos os campos!");
         return;
       }
@@ -47,6 +46,10 @@ export default function RegisterDragon() {
   const onBack = () => {
     navigate("/home");
   };
+
+  if (!isAuthenticated) {
+    navigate("/");
+  }
 
   if (loading) {
     return (

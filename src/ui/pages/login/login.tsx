@@ -18,7 +18,7 @@ export default function Login() {
     event.preventDefault();
 
     try {
-      if (email === "" || password === "") {
+      if (!email || !password) {
         toast.error("Preencha os campos");
         return;
       }
@@ -65,7 +65,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            <Button type="submit" loading={loading} onClick={handleLogin}>
+            <Button type="submit" loading={loading}>
               Acessar
             </Button>
           </form>

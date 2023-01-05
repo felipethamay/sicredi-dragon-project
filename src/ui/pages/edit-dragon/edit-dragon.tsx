@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
@@ -14,19 +14,27 @@ export default function EditDragon() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [dragons, setDragons] = useState<IDragon>();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [type, setType] = useState("");
   const [createdAt, setCreatedAt] = useState("");
 
+  const isAuthenticated = localStorage.getItem("isAuthenticated");
+
   const fetchDragonDetails = async () => {
     try {
       setLoading(true);
 
-      const response = await dragonService.getDragonById(id!);
+      if (!id) {
+        toast.error("Id não encontrado!");
+        return null;
+      }
 
-      setDragons(response.data);
+      const response = await dragonService.getDragonById(id);
+
+      setName(response.data.name);
+      setType(response.data.type);
+      setCreatedAt(response.data.createdAt);
 
       setLoading(false);
     } catch (error) {
@@ -38,19 +46,22 @@ export default function EditDragon() {
     fetchDragonDetails();
   }, []);
 
-  const handleRegister = async (event: FormEvent) => {
-    event.preventDefault();
-
+  const handleEdit = async () => {
     try {
       setLoading(true);
 
       const data = {
-        name: name,
-        type: type,
-        createdAt: createdAt,
+        name,
+        type,
+        createdAt,
       };
 
-      await dragonService.putDragon(id!, data);
+      if (!id) {
+        toast.error("Id não encontrado!");
+        return null;
+      }
+
+      await dragonService.putDragon(id, data);
 
       toast.success("Dragão editado com sucesso");
       setLoading(false);
@@ -64,6 +75,10 @@ export default function EditDragon() {
   const onBack = () => {
     navigate("/home");
   };
+
+  if (!isAuthenticated) {
+    navigate("/");
+  }
 
   if (loading) {
     return (
@@ -83,7 +98,7 @@ export default function EditDragon() {
             type="text"
             name="name"
             placeholder="Nome"
-            defaultValue={dragons?.name}
+            defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
         </label>
@@ -92,7 +107,7 @@ export default function EditDragon() {
             type="text"
             name="type"
             placeholder="Tipo"
-            defaultValue={dragons?.type}
+            defaultValue={type}
             onChange={(e) => setType(e.target.value)}
           />
         </label>
@@ -100,11 +115,11 @@ export default function EditDragon() {
           <Input
             type="date"
             name="createdAt"
-            defaultValue={dragons?.createdAt}
+            defaultValue={createdAt}
             onChange={(e) => setCreatedAt(e.target.value)}
           />
         </label>
-        <Button className="button-add" onClick={handleRegister}>
+        <Button className="button-add" onClick={handleEdit}>
           Salvar
         </Button>
         <Button className="button-back" onClick={onBack}>

@@ -6,7 +6,7 @@ export const AuthContext = createContext({} as AuthContextData);
 
 export function signOut() {
   try {
-    localStorage.setItem("isAuthenticated", "false");
+    localStorage.removeItem("isAuthenticated");
   } catch {
     toast.error("Erro ao deslogar");
   }
