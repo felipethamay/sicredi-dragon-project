@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { IDragon } from "../../../types/dragon.types";
 import "./sicred-card.css";
+import Loading from "../sicredi-loading/sicredi-loading.component";
 
 const dragonService = new DragonService();
 
@@ -51,11 +52,7 @@ export function SicrediCard() {
   }
 
   if (loading) {
-    return (
-      <div className="loading">
-        <h2>Carregando...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

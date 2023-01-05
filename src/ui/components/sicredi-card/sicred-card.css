@@ -54,10 +54,3 @@
   color: var(--gray-100);
   background-color: var(--red-500);
 }
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 14px;
-}

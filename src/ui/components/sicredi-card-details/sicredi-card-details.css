@@ -37,10 +37,3 @@
   padding: 10px 0;
   background-color: var(--red-500);
 }
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 14px;
-}

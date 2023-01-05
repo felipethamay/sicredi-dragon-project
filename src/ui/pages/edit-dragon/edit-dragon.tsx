@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
-import { IDragon } from "../../../types/dragon.types";
 import { Button } from "../../components/sicredi-button/sicredi-button.component";
 import SicrediHeader from "../../components/sicredi-header/sicredi-header.component";
 import { Input } from "../../components/sicredi-input/sicredi-input.component";
+import Loading from "../../components/sicredi-loading/sicredi-loading.component";
 import "./edit.dragon.css";
 
 const dragonService = new DragonService();
@@ -81,11 +81,7 @@ export default function EditDragon() {
   }
 
   if (loading) {
-    return (
-      <div className="loading">
-        <h2>Carregando...</h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
