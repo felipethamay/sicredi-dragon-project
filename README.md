@@ -68,7 +68,7 @@ npm start
 
 ## Acessando aplicação
 
-Para fazer login, utilize o usuaário e senha abaixo:
+Para fazer login, utilize o usuário e senha abaixo:
 
 - Email: teste@sicredi.com
 - Senha: 123
