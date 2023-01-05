@@ -16,8 +16,11 @@
   --gray-500: #adb5bd;
   --gray-600: #6c757d;
   --gray-900: #212529;
+
+  --red-500: #DC3545;
+
   --green-sicredi: #3ea111;
-  --red-900: #ff3f4b;
+  
 }
 
 button {
@@ -44,7 +47,7 @@ button {
 h2 {
    max-width: 720px;
   margin: 19px auto;
-  padding: 0 2rem;
+  padding: 0 32px;
   justify-content: center;
   color: var(--gray-500);
 }

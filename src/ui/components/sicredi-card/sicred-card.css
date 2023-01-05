@@ -1,67 +1,63 @@
 .container {
-    display: flex;
+  display: flex;
 }
 
 .content {
-    float: left;
-    min-width: 300px;
+  float: left;
+  min-width: 300px;
 }
 
-.listDragons {
-    max-width: 800px;
-    margin: 14px auto;
-    color: var(--gray-100);
+.list-dragons {
+  max-width: 800px;
+  margin: 14px auto;
+  color: var(--gray-500);
 }
 
-.listDragons article {
-    width: 100%;
-    padding: 15px;
-    border-radius: 4px;
+.list-dragons article {
+  width: 100%;
+  padding: 15px;
+  border-radius: 4px;
 }
 
-.listDragons strong {
-    display: flex;
-    margin-bottom: 14px;
-    text-align: center;
-    font-size: 22px;
+.list-dragons strong {
+  display: flex;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 20px;
 }
 
 .button-details {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    margin: 10px 0;
-    font-size: 24px;
-    background-color: var(--green-sicredi);
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 10px;
+  display: flex;
+  border-radius: 5px;
+  margin: 10px 0;
+  justify-content: center;
+  padding: 10px 0;
+  color: var(--gray-100);
+  background-color: var(--green-sicredi);
 }
 
 .button-edit {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    margin: 10px 0;
-    font-size: 24px;
-    background-color: var(--gray-600);
-    text-decoration: none;
-    color: var(--white);
-    border-radius: 10px;
+  display: flex;
+  border-radius: 5px;
+  margin: 10px 0;
+  justify-content: center;
+  padding: 10px 0;
+  color: var(--gray-100);
+  background-color: var(--gray-600);
 }
 
 .button-delete {
-    width: 100%;
-    padding: 10px 0;
-    font-size: 24px;
-    background-color: var(--red-900);
-    color: var(--white);
-    border-radius: 10px;
+  width: 100%;
+  display: flex;
+  margin: 10px 0;
+  justify-content: center;
+  color: var(--gray-100);
+  background-color: var(--red-500);
 }
 
 .loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
 }

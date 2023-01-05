@@ -2,9 +2,9 @@ import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
-import { Button } from "../../components/sicredi-button/sicredi-button";
+import { Button } from "../../components/sicredi-button/sicredi-button.component";
 import SicrediHeader from "../../components/sicredi-header/sicredi-header.component";
-import { Input } from "../../components/sicredi-input/sicredi-input";
+import { Input } from "../../components/sicredi-input/sicredi-input.component";
 import "./register-dragon.css";
 
 const dragonService = new DragonService();
@@ -79,7 +79,7 @@ export default function RegisterDragon() {
           <label>
             <Input type="date" onChange={(e) => setCreatedAt(e.target.value)} />
           </label>
-          <Button className="buttonAdd" onClick={handleRegister}>
+          <Button className="button-add" onClick={handleRegister}>
             Salvar
           </Button>
           <Button className="button-back" onClick={onBack}>

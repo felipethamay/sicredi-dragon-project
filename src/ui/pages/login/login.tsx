@@ -1,6 +1,6 @@
 import { FormEvent, useContext, useState } from "react";
-import { Input } from "../../components/sicredi-input/sicredi-input";
-import { Button } from "../../components/sicredi-button/sicredi-button";
+import { Input } from "../../components/sicredi-input/sicredi-input.component";
+import { Button } from "../../components/sicredi-button/sicredi-button.component";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../contexts/AuthContext";
@@ -46,7 +46,7 @@ export default function Login() {
       <h1>
         <title>SicrediDragon - Faça seu login</title>
       </h1>
-      <div className="containerCenter">
+      <div className="container-center">
         <img src={logoImg} alt="logo Sicredi" width={380} height={120} />
 
         <div className="login">

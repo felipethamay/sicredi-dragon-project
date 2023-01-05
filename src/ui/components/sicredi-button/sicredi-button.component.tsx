@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export function Button({ loading, children, ...rest }: ButtonProps) {
   return (
     <button className="button" disabled={loading} {...rest}>
-      <a className="buttonText">{children}</a>
+      <a className="button-text">{children}</a>
     </button>
   );
 }

@@ -3,9 +3,9 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
 import { IDragon } from "../../../types/dragon.types";
-import { Button } from "../../components/sicredi-button/sicredi-button";
+import { Button } from "../../components/sicredi-button/sicredi-button.component";
 import SicrediHeader from "../../components/sicredi-header/sicredi-header.component";
-import { Input } from "../../components/sicredi-input/sicredi-input";
+import { Input } from "../../components/sicredi-input/sicredi-input.component";
 import "./edit.dragon.css";
 
 const dragonService = new DragonService();
@@ -13,7 +13,7 @@ const dragonService = new DragonService();
 export default function EditDragon() {
   const { id } = useParams();
   const navigate = useNavigate();
-  
+
   const [dragons, setDragons] = useState<IDragon>();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
@@ -78,40 +78,38 @@ export default function EditDragon() {
       <SicrediHeader />
       <h2>Editar dragão</h2>
       <div className="container">
-        <div className="form">
-          <label>
-            <Input
-              type="text"
-              name="name"
-              placeholder="Nome"
-              defaultValue={dragons?.name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-          <label>
-            <Input
-              type="text"
-              name="type"
-              placeholder="Tipo"
-              defaultValue={dragons?.type}
-              onChange={(e) => setType(e.target.value)}
-            />
-          </label>
-          <label>
-            <Input
-              type="date"
-              name="createdAt"
-              defaultValue={dragons?.createdAt}
-              onChange={(e) => setCreatedAt(e.target.value)}
-            />
-          </label>
-          <Button className="buttonAdd" onClick={handleRegister}>
-            Salvar
-          </Button>
-          <Button className="button-back" onClick={onBack}>
-            Voltar
-          </Button>
-        </div>
+        <label>
+          <Input
+            type="text"
+            name="name"
+            placeholder="Nome"
+            defaultValue={dragons?.name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </label>
+        <label>
+          <Input
+            type="text"
+            name="type"
+            placeholder="Tipo"
+            defaultValue={dragons?.type}
+            onChange={(e) => setType(e.target.value)}
+          />
+        </label>
+        <label>
+          <Input
+            type="date"
+            name="createdAt"
+            defaultValue={dragons?.createdAt}
+            onChange={(e) => setCreatedAt(e.target.value)}
+          />
+        </label>
+        <Button className="button-add" onClick={handleRegister}>
+          Salvar
+        </Button>
+        <Button className="button-back" onClick={onBack}>
+          Voltar
+        </Button>
       </div>
     </>
   );

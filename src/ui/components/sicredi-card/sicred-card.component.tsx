@@ -54,7 +54,7 @@ export function SicrediCard() {
 
   return (
     <div className="container">
-      <div className="listDragons">
+      <div className="list-dragons">
         {dragons.map((dragon) => {
           return (
             <div className="content">

@@ -9,7 +9,7 @@ form button {
   font-size: 20px;
 }
 
-.containerCenter {
+.container-center {
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,9 +1,10 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { DragonService } from "../../../services/dragon/dragon.service";
 import { IDragon } from "../../../types/dragon.types";
+import { Button } from "../sicredi-button/sicredi-button.component";
 import "./sicredi-card-details.css";
 
 const dragonService = new DragonService();
@@ -11,8 +12,12 @@ const dragonService = new DragonService();
 export default function SicrediCardDetails() {
   const [dragons, setDragons] = useState<IDragon>();
   const [loading, setLoading] = useState(false);
-
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate('/home')
+  }
 
   const fetchDragonDetails = async () => {
     try {
@@ -36,6 +41,7 @@ export default function SicrediCardDetails() {
 
       toast.success("Dragão deletado com sucesso!");
       setLoading(false);
+      goBack();
     } catch (error) {
       setLoading(false);
       toast.error("Erro ao deletar dragão!");
@@ -64,12 +70,10 @@ export default function SicrediCardDetails() {
             <strong>
               Data de Criação: {moment(dragons?.createdAt).format("DD/MM/YYYY")}
             </strong>
-            <Link className="button-back" to="/home">
-              Voltar
-            </Link>
-            <Link className="button-detele" to="/home" onClick={deleteDragon}>
+            <Button className="button-back" onClick={goBack}>Voltar</Button>
+            <Button className="button-delete" onClick={deleteDragon}>
               Deletar
-            </Link>
+            </Button>
           </article>
         </div>
       </div>

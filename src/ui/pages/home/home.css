@@ -8,13 +8,13 @@
 }
 
 .login {
-  margin-top: 2rem;
+  margin-top: 32px;
   width: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 2rem 1.5rem;
+  padding: 32px 24px;
 }
 
 form {
@@ -25,11 +25,11 @@ form {
 
 form button {
   height: 40px;
-  font-size: 1.2rem;
+  font-size: 1.32px;
 }
 
 .text {
-  margin-top: 1rem;
+  margin-top: 16px;
   color: var(--white);
   cursor: pointer;
 }
