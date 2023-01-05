@@ -17,8 +17,14 @@
 |--src
 |  |---assets
 |  |  |
+|  |  |---icons
+|  |  |     » Icones do projeto
+|  |  |
 |  |  |---images
 |  |  |     » Imagens do projeto
+|  |
+|  |---contexts
+|  |    » Contextos do projeto
 |  |
 |  |---router
 |  |    » Estrutura de rotas do projeto
@@ -34,7 +40,7 @@
 |  |  |---components
 |  |  |     » Componentes do projeto
 |  |  |
-|  |  |---screens
+|  |  |---pages
 |  |  |     » Telas do projeto
 |  |  |
 
